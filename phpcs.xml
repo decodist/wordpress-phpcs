@@ -1,0 +1,83 @@
+<!--
+	WordPress phpcs custom rulset starter kit
+-->
+<?xml version="1.0"?>
+<ruleset name="Decodist">
+
+	<!--
+	Prevent errors caused by WordPress Coding Standards not supporting PHP 8.0+.
+	See https://github.com/WordPress/WordPress-Coding-Standards/issues/2035
+	-->
+	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
+
+	<config name="minimum_supported_wp_version" value="8.0"/>
+	<config name="text_domain" value="" />
+  <config name="prefixes" value="" />
+
+	<!-- Exclude WP Core folders and files from being checked. -->
+	<exclude-pattern>^/wp-admin/*</exclude-pattern>
+	<exclude-pattern>^/wp-includes/*</exclude-pattern>
+	<exclude-pattern>^/wp-*.php</exclude-pattern>
+	<exclude-pattern>^/index.php</exclude-pattern>
+	<exclude-pattern>^/xmlrpc.php</exclude-pattern>
+	<exclude-pattern>^/wp-content/plugins/*</exclude-pattern>
+  <exclude-pattern>^/wp-content/themes/genesis/*</exclude-pattern>
+
+	<!-- Exclude the Composer Vendor directory. -->
+	<exclude-pattern>^/vendor/*</exclude-pattern>
+	<!-- Exclude all Vendor directories -->
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<!-- Exclude the Node Modules directory. -->
+	<exclude-pattern>^/node_modules/*</exclude-pattern>
+
+	<!-- Exclude minified Javascript files. -->
+	<exclude-pattern>*.min.js</exclude-pattern>
+
+	<!-- Exclude jQuery files. -->
+	<exclude-pattern>jquery.*</exclude-pattern>
+
+	<!-- Include the WordPress standard. -->
+	<rule ref="WordPress">
+		<exclude name="WordPress.WhiteSpace.DisallowInlineTabs.NonIndentTabsUsed" />
+    <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
+		<exclude name="WordPress.Security.NonceVerification.Recommended" />
+		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid" />
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Security.NonceVerification.Recommended" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase" />
+	</rule>
+
+	<rule ref="WordPress-Docs">
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+	</rule>
+
+	<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
+	<exclude name="Generic.WhiteSpace.ScopeIndent" />
+
+	<exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
+	<exclude name="Squiz.Commenting.ClassComment.WrongStyle" />
+	<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+	<exclude name="Squiz.Commenting.FunctionComment.Missing" />
+	<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag" />
+	<exclude name="Squiz.Commenting.InlineComment.SpacingAfter" />
+	<exclude name="Squiz.Commenting.FileComment.Missing" />
+	<exclude name="Squiz.Commenting.LongConditionClosingComment.Missing" />
+	<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+	<exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+	<exclude name="Squiz.PHP.CommentedOutCode.Found" />
+	<exclude name="Squiz.Strings.DoubleQuoteUsage.NotRequired" />
+
+	<!-- Add in some extra rules from other standards. -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
+
+	<!-- Add spaces inside parenthesis -->
+	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+		<properties>
+			<property name="spacing" value="1" />
+		</properties>
+	</rule>
+
+</ruleset>
