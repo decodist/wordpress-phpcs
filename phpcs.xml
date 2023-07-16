@@ -9,6 +9,13 @@
 	-->
 	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
 
+	<!-- make the standards available to phpcs -->
+	<!-- REPLACE WITH YOUR OWN PATHS -->
+	<rule ref="/opt/WordPress-Coding-Standards/WordPress"/>
+	<rule ref="/opt/WordPress-Coding-Standards/WordPress-Core"/>
+	<rule ref="/opt/WordPress-Coding-Standards/WordPress-Docs"/>
+	<rule ref="/opt/WordPress-Coding-Standards/WordPress-Extra"/>
+
 	<config name="minimum_supported_wp_version" value="8.0"/>
 	<config name="text_domain" value="" />
   	<config name="prefixes" value="" />
