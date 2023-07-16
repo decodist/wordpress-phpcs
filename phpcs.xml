@@ -1,9 +1,8 @@
-<!--
-	WordPress phpcs custom rulset starter kit
--->
 <?xml version="1.0"?>
 <ruleset name="Decodist">
 
+	<!-- WordPress phpcs custom rulset starter kit -->
+	
 	<!--
 	Prevent errors caused by WordPress Coding Standards not supporting PHP 8.0+.
 	See https://github.com/WordPress/WordPress-Coding-Standards/issues/2035
